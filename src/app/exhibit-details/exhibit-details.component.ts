@@ -15,14 +15,14 @@ export class ExhibitDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private exhibitDetailsService: ExhibitDetailsService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const exhibitId = this.route.snapshot.paramMap.get('id')
     this.getExhibitData(exhibitId);
   }
 
-  getExhibitData(exhibitId: string|null): void {
+  getExhibitData(exhibitId: string | null): void {
     if (!exhibitId) {
       this.selectedExhbit = null;
       return;

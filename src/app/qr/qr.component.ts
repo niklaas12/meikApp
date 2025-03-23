@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BarcodeFormat } from '@zxing/library';
 
 @Component({
@@ -10,12 +11,16 @@ export class QrComponent implements OnInit {
   result: string = 'Nichts' 
   allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
 
-  ngOnInit(): void {
-    console.log('works')
-    
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {   
   }
 
   public scanCode(code: string): void {
-    this.result = code
+    if (!code) {
+      return
+    }
+    
+    this.router.navigate(['exhibit/details', code])
   }
 }

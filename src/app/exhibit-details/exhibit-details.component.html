@@ -1,6 +1,7 @@
 <div class="mt-16">
     <div class="navbar bg-base-200 shadow-sm fixed top-0 left-0 z-10">
-        <a class="btn btn-ghost text-xl">{{selectedExhbit.name}}</a>
+        <a class="btn btn-ghost text-xl" onclick="window.history.back()"><span class="material-symbols-outlined">arrow_back</span></a>
+        <a class="btn btn-ghost text-xl">{{selectedExhbit?.name}}</a>
     </div>
 
     <div class="p-4 flex flex-col">
@@ -12,68 +13,69 @@
                         <div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Beschreibung:</span>
-                                <span>{{selectedExhbit.short_description}}</span>
+                                <span>{{selectedExhbit?.short_description}}</span>
                             </div>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Hersteller:</span>
-                                <span>{{selectedExhbit.manufacturer}}</span>
+                                <span>{{selectedExhbit?.manufacturer}}</span>
                             </div>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Herstellungsdatum:</span>
-                                <span>{{selectedExhbit.manufacture_date}}</span>
+                                <span>{{selectedExhbit?.manufacture_date}}</span>
                             </div>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Ursprünglicher Preis:</span>
-                                <span>{{selectedExhbit.original_price.amount}}
-                                    {{selectedExhbit.original_price.currency}}</span>
+                                <span>{{selectedExhbit?.original_price.amount}}
+                                    {{selectedExhbit?.original_price.currency}}</span>
                             </div>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Standort:</span>
-                                <span>{{selectedExhbit.location}} - {{selectedExhbit.place}}</span>
+                                <span>{{selectedExhbit?.location}} - {{selectedExhbit?.place}}</span>
                             </div>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Kategorie:</span>
-                                <span>{{selectedExhbit.category}}</span>
+                                <span>{{selectedExhbit?.category}}</span>
                             </div>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Rubric:</span>
-                                <span>{{selectedExhbit.rubric}}</span>
+                                <span>{{selectedExhbit?.rubric}}</span>
                             </div>
                             <div class="divider my-0"></div>
-                            <ng-container *ngIf="selectedExhbit.book_info">
+                            <ng-container *ngIf="selectedExhbit?.book_info">
                                 <div class="flex justify-between lg:flex-row flex-col">
                                     <span>Author:</span>
-                                    <span>{{selectedExhbit.book_info.authors}}</span>
+                                    <span>{{selectedExhbit?.book_info.authors}}</span>
                                 </div>
                                 <div class="divider my-0"></div>
                                 <div class="flex justify-between lg:flex-row flex-col">
                                     <span>ISBN:</span>
-                                    <span>{{selectedExhbit.book_info.isbn}}</span>
+                                    <span>{{selectedExhbit?.book_info.isbn}}</span>
                                 </div>
                                 <div class="divider my-0"></div>
                                 <div class="flex justify-between lg:flex-row flex-col">
                                     <span>Sprache:</span>
-                                    <span>{{selectedExhbit.book_info.language}}</span>
+                                    <span>{{selectedExhbit?.book_info.language}}</span>
                                 </div>
                             </ng-container>
 
-                            <ng-container *ngIf="selectedExhbit.device_info">
+                            <ng-container *ngIf="selectedExhbit?.device_info">
                                 <div class="flex justify-between lg:flex-row flex-col">
                                     <span>Herstellungszeitraum:</span>
-                                    <span>{{selectedExhbit.device_info.manufactured_from_date}} bis {{selectedExhbit.device_info.manufactured_from_date}}</span>
+                                    <span>{{selectedExhbit?.device_info.manufactured_from_date}} bis
+                                        {{selectedExhbit?.device_info.manufactured_from_date}}</span>
                                 </div>
                             </ng-container>
                             <div class="divider my-0"></div>
                             <div class="flex justify-between lg:flex-row flex-col">
                                 <span>Verknüpfte Exponate:</span>
                                 <ul>
-                                    <li *ngFor="let connectedExhibit of selectedExhbit.connected_exhibits">
+                                    <li *ngFor="let connectedExhibit of selectedExhbit?.connected_exhibits">
                                         <a [routerLink]="['/exhibit/details', 2]">
                                             {{connectedExhibit.name}}
                                         </a>
@@ -89,10 +91,10 @@
                     </div>
                 </div>
                 <div class="flex flex-col pt-4">
-                    <div class="flex flex-col" *ngFor="let freeText of selectedExhbit.free_text_fields; let i = index">
+                    <div class="flex flex-col" *ngFor="let freeText of selectedExhbit?.free_text_fields; let i = index">
                         <span class="font-bold text-xl pb-4">{{freeText.title}}</span>
                         <span [innerHTML]="freeText.html"></span>
-                        <div *ngIf="i < selectedExhbit.free_text_fields.length - 1" class="divider"></div>
+                        <div *ngIf="i < selectedExhbit?.free_text_fields.length - 1" class="divider"></div>
                     </div>
                 </div>
             </div>

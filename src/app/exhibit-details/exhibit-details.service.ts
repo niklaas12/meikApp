@@ -9,9 +9,9 @@ export class ExhibitDetailsService {
     private http: HttpClient
   ) { }
 
-  private apiUrl = 'http://localhost:8080/api/exhibit' 
-  private apiUrlImage = 'http://localhost:8080/api/image'
-  private apiUrlThumbnail = 'http://localhost:8080/api/thumbnail'
+  private apiUrl = 'https://meik-gr3.industrieschule.de/api/exhibit' 
+  private apiUrlImage = 'https://meik-gr3.industrieschule.de/api/image'
+  private apiUrlThumbnail = 'https://meik-gr3.industrieschule.de/api/thumbnail'
 
   public getExhibitData(id: string) {
     return this.http.get(`${this.apiUrl}/${id}`)
